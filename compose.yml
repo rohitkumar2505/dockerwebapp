@@ -1,7 +1,7 @@
 version: "3.9"
 services:
  devopsdb:
-   image: rohitkumar2505/login:db Docker-db
+   image: rohitkumar2505/login:db 
    ports:
      - "3306:3306"
    networks:
@@ -10,7 +10,7 @@ services:
     replicas: 3
 
  application:
-   image: rohitkumar2505/logout:app Docker-app
+   image: rohitkumar2505/logout:app 
    ports:
      - "1111:8080"
    networks:
