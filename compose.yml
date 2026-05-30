@@ -1,14 +1,27 @@
----
-version: "3"
+version: "3.9"
 services:
  devopsdb:
-   image: shaikmustafa/harikanew:dbimage
+   image: rohitkumar2505/login:db Docker-db
    ports:
      - "3306:3306"
+   networks:
+     - mynetwork
+   deploy:
+    replicas: 3
 
  application:
-   image: shaikmustafa/harikanew:appimage
+   image: rohitkumar2505/logout:app Docker-app
    ports:
      - "1111:8080"
+   networks:
+     - mynetwork
+   deploy:
+    replicas: 3
    depends_on:
      - "devopsdb"
+
+
+networks:
+  mynetwork:
+    driver: overlay
+
